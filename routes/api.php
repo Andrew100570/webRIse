@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SmsProxyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware(['check.proxy.token'])->group(function () {
+    Route::post('/getNumber', [SmsProxyController::class, 'getNumber']);
+    Route::post('/getSms', [SmsProxyController::class, 'getSms']);
+    Route::post('/cancelNumber', [SmsProxyController::class, 'cancelNumber']);
+    Route::post('/getStatus', [SmsProxyController::class, 'getStatus']);
 });
