@@ -4,22 +4,32 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\SearchFilesCommand;
 
 class Kernel extends ConsoleKernel
 {
     /**
-     * Define the application's command schedule.
+     * Регистрация всех консольных команд в приложении.
+     *
+     * @var array
+     */
+    protected $commands = [
+        SearchFilesCommand::class,  // Регистрируем Нашу команду
+    ];
+
+    /**
+     * Определите расписание команд.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // Задачи планирования
     }
 
     /**
-     * Register the commands for the application.
+     * Регистрация команд в консольном приложении.
      *
      * @return void
      */
