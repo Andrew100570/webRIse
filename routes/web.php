@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\InitController;
+use App\Http\Controllers\DataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +40,7 @@ Route::get('/register', [RegisteredUserController::class, 'create'])->name('regi
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
 Route::get('/getTest', [InitController::class, 'get']);
+
+Route::get('/data', [DataController::class, 'getData']);
 
 require __DIR__.'/auth.php';
