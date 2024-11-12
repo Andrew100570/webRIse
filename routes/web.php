@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\InitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +38,6 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
+Route::get('/getTest', [InitController::class, 'get']);
 
 require __DIR__.'/auth.php';
